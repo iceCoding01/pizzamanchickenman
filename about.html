@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Pizza Man</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+        }
+        .header-background {
+            background-image: url('images/chickenwings.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="font-serif">
+    <nav class="fixed w-full bg-white shadow-md top-0 left-0">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="images/pizzaman.png" alt="Pizza Man Logo" class="h-12">
+                <div class="relative">
+                    <input type="text" placeholder="Search..." class="border border-gray-300 rounded-md p-2 pl-10" id="search-input">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+            <div class="flex space-x-4 items-center">
+                <div class="nav-links flex space-x-4">
+                    <a href="index.html" class="text-blue-500 hover:underline">Home</a>
+                    <a href="about.html" class="text-blue-500 hover:underline">About Us</a>
+                    <a href="menu.html" class="text-blue-500 hover:underline">Menu</a>
+                    <a href="order.html" class="text-blue-500 hover:underline">Order Now</a>
+                    <a href="contact.html" class="text-blue-500 hover:underline">Contact</a>
+                </div>
+                <div class="menu-icon cursor-pointer md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="header-background">
+        <h1 class="text-5xl font-bold">About Us</h1>
+    </div>
+    <div class="container mx-auto p-4 mt-8">
+        <h1 class="text-3xl font-bold mb-4">About Us</h1>
+        <p class="mb-4">Pizza Man was established in 2020 with the mission to provide the best pizza in town. Our vision is to become the leading pizza delivery service in the region.</p>
+        
+        <!-- New Content -->
+        <h2 class="text-2xl font-bold mb-4">Brief History</h2>
+        <p class="mb-4">Pizzaman Chickenman is Ghana’s fastest-growing fast-food chain, specializing in pizzas, grilled chicken, rice dishes, and other fast-food meals. The brand started in 2018 in Kumasi and quickly expanded across Accra, Kumasi, and other cities. Known for its affordable pricing, large meal portions, and innovative menu, Pizzaman Chickenman has become a household name in Ghana. The company operates multiple branches and provides delivery services via platforms like Bolt Food and Glovo.</p>
+
+        <h2 class="text-2xl font-bold mb-4">Vision</h2>
+        <p class="mb-4">To become Ghana’s No.1 fast-food brand by offering high-quality, delicious meals at affordable prices with excellent customer service.</p>
+
+        <h2 class="text-2xl font-bold mb-4">Mission</h2>
+        <ul class="list-disc list-inside mb-4">
+            <li>To provide Ghanaians with accessible and tasty fast food.</li>
+            <li>To expand operations across Africa, making Pizzaman Chickenman an international franchise.</li>
+            <li>To improve food delivery services with an efficient digital ordering system.</li>
+        </ul>
+
+        <!-- Achievements Section -->
+        <h2 class="text-2xl font-bold mb-4">Achievements</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 bg-white shadow-md rounded-lg flex items-center space-x-4">
+                <i class="fas fa-store-alt fa-2x text-blue-500"></i>
+                <div>
+                    <p class="font-semibold">Opened 20 branches across Ghana within 3 years.</p>
+                </div>
+            </div>
+            <div class="p-4 bg-white shadow-md rounded-lg flex items-center space-x-4">
+                <i class="fas fa-chart-line fa-2x text-blue-500"></i>
+                <div>
+                    <p class="font-semibold">Recognized as the fastest-growing fast-food chain in Ghana.</p>
+                </div>
+            </div>
+            <div class="p-4 bg-white shadow-md rounded-lg flex items-center space-x-4">
+                <i class="fas fa-award fa-2x text-blue-500"></i>
+                <div>
+                    <p class="font-semibold">Awarded Best Customer Service in the fast-food industry in 2021.</p>
+                </div>
+            </div>
+            <div class="p-4 bg-white shadow-md rounded-lg flex items-center space-x-4">
+                <i class="fas fa-handshake fa-2x text-blue-500"></i>
+                <div>
+                    <p class="font-semibold">Partnered with major delivery platforms like Bolt Food and Glovo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('search-input').addEventListener('input', function() {
+            var query = this.value.toLowerCase();
+            document.querySelectorAll('.container').forEach(function(container) {
+                var text = container.textContent.toLowerCase();
+                container.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

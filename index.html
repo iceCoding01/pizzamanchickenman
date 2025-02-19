@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Pizza Man</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-images {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 100%;
+            animation: swapBackground 12s infinite linear;
+        }
+
+        .hero-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-images img:nth-child(1) { animation: fadeIn 12s infinite; }
+        .hero-images img:nth-child(2) { animation: fadeIn 12s infinite 3s; }
+        .hero-images img:nth-child(3) { animation: fadeIn 12s infinite 6s; }
+        .hero-images img:nth-child(4) { animation: fadeIn 12s infinite 9s; }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            25% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: white;
+            z-index: 2;
+            padding: 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .hero-content a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #e3342f;
+            color: white;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            font-size: 1.125rem;
+            transition: background-color 0.3s;
+        }
+
+        .hero-content a:hover {
+            background-color: #cc1f1a;
+        }
+
+        .carousel {
+            margin-top: 2rem;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .slick-prev, .slick-next {
+            width: 40px;
+            height: 40px;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            color: white;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slick-prev:hover, .slick-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .slick-prev:before, .slick-next:before {
+            font-size: 20px;
+        }
+
+        .slick-prev {
+            left: 10px;
+        }
+
+        .slick-next {
+            right: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1a202c;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                height: 35vh;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .hero-content a {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+            nav a {
+                font-size: 1.25rem;
+                padding: 0.5rem;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="font-serif">
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full bg-white shadow-md top-0 left-0 z-10">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="images/pizzaman.png" alt="Pizza Man Logo" class="h-12">
+                <div class="relative">
+                    <input type="text" placeholder="Search..." class="border border-gray-300 rounded-md p-2 pl-10" id="search-input">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+            <div class="flex space-x-4 items-center">
+                <div class="nav-links flex space-x-4">
+                    <a href="index.html" class="text-blue-500 hover:underline">Home</a>
+                    <a href="about.html" class="text-blue-500 hover:underline">About Us</a>
+                    <a href="menu.html" class="text-blue-500 hover:underline">Menu</a>
+                    <a href="order.html" class="text-blue-500 hover:underline">Order Now</a>
+                    <a href="contact.html" class="text-blue-500 hover:underline">Contact</a>
+                </div>
+                <div class="menu-icon cursor-pointer md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-images">
+            <img src="images/beefbucket.png" alt="Beef Bucket">
+            <img src="images/friedRice.jpg" alt="Fried Rice">
+            <img src="images/drum8pieces.png" alt="Drum 8 Pieces">
+            <img src="images/pizza.jpg" alt="Pizza">
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to Pizza Man</h1>
+            <p>Order the best pizza in town, delivered right to your doorstep!</p>
+            <a href="order.html">Order Now</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-4 mt-8">
+        <h2 class="text-2xl font-bold mb-4">Our Specialties</h2>
+        <p class="mb-4">We offer a variety of pizzas, sides, and beverages to satisfy all tastes.</p>
+        <a href="menu.html" class="text-blue-500 hover:underline">Check out our menu</a>
+
+        <div class="carousel mt-8">
+            <div><img src="images/beefbucket.png" alt="Beef Bucket"></div>
+            <div><img src="images/friedRice.jpg" alt="Fried Rice"></div>
+            <div><img src="images/drum8pieces.png" alt="Drum 8 Pieces"></div>
+            <div><img src="images/pizza.jpg" alt="Pizza"></div>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Why Choose Us?</h2>
+            <p class="mb-4">
+                At Pizza Man, we use only the freshest ingredients to create our delicious pizzas. Our dough is made fresh daily,
+                and our sauces are crafted from the finest tomatoes and spices.
+            </p>
+            <p class="mb-4">
+                Whether you're looking for a classic Margherita, a spicy Pepperoni, or a veggie-packed Veggie Delight, we have something for everyone.
+                Don't forget to try our sides and beverages to complete your meal!
+            </p>
+        </div>
+
+        <!-- New Content Section -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Customer Reviews</h2>
+            <div class="space-y-4">
+                <div class="p-4 bg-gray-100 rounded-lg flex items-center space-x-4">
+                    <img src="images/chickenwings.jpg" alt="John Doe" class="w-12 h-12 rounded-full">
+                    <div>
+                        <p class="font-semibold">John Doe</p>
+                        <div class="flex items-center">
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                        </div>
+                        <p>"The best pizza I've ever had! Fast delivery and excellent customer service."</p>
+                    </div>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg flex items-center space-x-4">
+                    <img src="images/drum8pieces.png" alt="Jane Smith" class="w-12 h-12 rounded-full">
+                    <div>
+                        <p class="font-semibold">Jane Smith</p>
+                        <div class="flex items-center">
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9734;</span>
+                        </div>
+                        <p>"Amazing flavors and fresh ingredients. Highly recommend Pizza Man!"</p>
+                    </div>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg flex items-center space-x-4">
+                    <img src="images/pizza.jpg" alt="Michael Brown" class="w-12 h-12 rounded-full">
+                    <div>
+                        <p class="font-semibold">Michael Brown</p>
+                        <div class="flex items-center">
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9733;</span>
+                            <span class="text-yellow-500">&#9734;</span>
+                        </div>
+                        <p>"Great variety of pizzas and sides. My go-to place for pizza night."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Our Locations</h2>
+            <p class="mb-4">Visit us at any of our convenient locations:</p>
+            <ul class="list-disc list-inside">
+                <li>123 Main Street, Cityville</li>
+                <li>456 Elm Street, Townsville</li>
+                <li>789 Oak Street, Villagetown</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 Pizza Man. All rights reserved.</p>
+        <p>Follow us on:
+            <a href="#" class="text-blue-500 hover:underline">Facebook</a>,
+            <a href="#" class="text-blue-500 hover:underline">Twitter</a>,
+            <a href="#" class="text-blue-500 hover:underline">Instagram</a>
+        </p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                prevArrow: '<button type="button" class="slick-prev">&lt;</button>',
+                nextArrow: '<button type="button" class="slick-next">&gt;</button>',
+            });
+
+            $('.menu-icon').on('click', function() {
+                $('.nav-links').toggle();
+            });
+
+            $('#search-input').on('input', function() {
+                var query = $(this).val().toLowerCase();
+                $('.container').each(function() {
+                    var text = $(this).text().toLowerCase();
+                    $(this).toggle(text.includes(query));
+                });
+            });
+        });
+    </script>
+</body>
+</html>
