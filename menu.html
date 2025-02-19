@@ -88,8 +88,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #333;
-            color: white;
+            background: white;
+            color: black;
             padding: 15px;
         }
         .menu-icon {
@@ -141,6 +141,17 @@
             color: #333;
             margin-right: 0.5rem;
         }
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-links a {
+            color: black;
+            text-decoration: none;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body class="font-serif">
@@ -151,11 +162,11 @@
             <input type="text" class="search-input" placeholder="Search...">
         </div>
         <div class="nav-links">
-            <a href="index.html" class="text-white hover:underline mr-4">Home</a>
-            <a href="about.html" class="text-white hover:underline mr-4">About Us</a>
-            <a href="menu.html" class="text-white hover:underline mr-4">Menu</a>
-            <a href="order.html" class="text-white hover:underline mr-4">Order Now</a>
-            <a href="contact.html" class="text-white hover:underline">Contact</a>
+            <a href="index.html" class="text-black hover:underline mr-4">Home</a>
+            <a href="about.html" class="text-black hover:underline mr-4">About Us</a>
+            <a href="menu.html" class="text-black hover:underline mr-4">Menu</a>
+            <a href="order.html" class="text-black hover:underline mr-4">Order Now</a>
+            <a href="contact.html" class="text-black hover:underline">Contact</a>
         </div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
@@ -185,7 +196,7 @@
                             <i class="fas fa-plus mr-1"></i>
                             Add
                         </a>
-                        <a href="#" class="btn btn-order">
+                        <a href="#" class="btn btn-order ml-2">
                             <i class="fas fa-shopping-cart mr-1"></i>
                             Order
                         </a>
@@ -203,7 +214,7 @@
                             <i class="fas fa-plus mr-1"></i>
                             Add
                         </a>
-                        <a href="#" class="btn btn-order">
+                        <a href="#" class="btn btn-order ml-2">
                             <i class="fas fa-shopping-cart mr-1"></i>
                             Order
                         </a>
