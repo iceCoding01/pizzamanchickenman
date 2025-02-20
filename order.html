@@ -10,6 +10,93 @@
             margin: 0;
             font-family: 'Poppins', sans-serif;
         }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-links.active {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid #e2e8f0;
+            }
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            color: black;
+            padding: 15px;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .menu-container {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #222;
+            color: white;
+            display: none;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure the menu is above other elements */
+        }
+        .menu-container.active {
+            display: block;
+        }
+        .menu-container ul {
+            list-style: none;
+            text-align: center;
+        }
+        .menu-container ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+        .menu-container ul li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+        }
+        .search-input {
+            border: none;
+            outline: none;
+            padding: 0.25rem;
+            font-size: 1rem;
+        }
+        .search-icon {
+            color: #333;
+            margin-right: 0.5rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-links a {
+            color: black;
+            text-decoration: none;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body class="font-serif">
@@ -23,7 +110,7 @@
                 </div>
             </div>
             <div class="flex space-x-4 items-center">
-                <div class="nav-links flex space-x-4">
+                <div class="nav-links flex space-x-4 md:flex-row md:space-x-4">
                     <a href="index.html" class="text-blue-500 hover:underline">Home</a>
                     <a href="about.html" class="text-blue-500 hover:underline">About Us</a>
                     <a href="menu.html" class="text-blue-500 hover:underline">Menu</a>
@@ -69,6 +156,10 @@
                 var text = container.textContent.toLowerCase();
                 container.style.display = text.includes(query) ? '' : 'none';
             });
+        });
+
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
     </script>
 </body>
